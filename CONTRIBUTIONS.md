@@ -1,3 +1,0 @@
-# Contributions
-
-Aradhya Pasikanti | Claude 
