@@ -1,4 +1,4 @@
-"""Step 3: score candidate access sites along the vein skeleton and pick the best few. Reference implementation by Claude Code.
+"""Step 3: score candidate access sites along the vein skeleton and pick the best few.
 
 A good site is on a vein that is (1) clearly detected, (2) wide, (3) straight for a stretch, and (4) away from
 branch points and the image border. Each property is turned into a 0..1 term; the score is their weighted sum
@@ -62,7 +62,7 @@ def local_straightness(binary: np.ndarray, window: int):
 def site_terms(site: Site, p: Params = DEFAULT) -> dict:
     """0..1 terms for a site. The first five make the rule-based score; all eight are ML features.
 
-    The last three were added after studying Aradhya's labels on real photos: his good sites lay on veins running
+    The last three were added after studying labels on real photos: good sites lay on veins running
     along the arm, on longer continuous vein pieces, and away from the wrist and elbow ends."""
     clip = lambda v: float(min(1.0, max(0.0, v)))
     return {

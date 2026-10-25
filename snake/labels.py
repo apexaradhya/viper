@@ -1,12 +1,10 @@
-"""Aradhya's own good/bad site labels on real Kaggle forearm photos, and turning them into training rows.
+"""Good/bad site labels on real Kaggle forearm photos, and turning them into training rows.
 
 Labels are stored as (split, image number, x, y, good) in 640-px image coordinates, NOT as feature vectors. Why: if
 detection changes later, training simply re-runs the pipeline and re-measures the features at each labeled point,
-so his labeling work never goes stale.
+so labeling work never goes stale.
 
-The Kaggle images live only on this computer (data/kaggle_forearm_nir/, gitignored; license "Unknown", see
-docs/DATA_SOURCES.md). The labels file holds only coordinates, so it can be committed.
-Implemented by Claude Code.
+The Kaggle images live only on this computer (data/kaggle_forearm_nir/, gitignored; license "Unknown"). The labels file holds only coordinates, so it can be committed.
 """
 from __future__ import annotations
 

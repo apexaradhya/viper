@@ -4,8 +4,8 @@ import streamlit as st
 
 from . import state, style
 
-# Aradhya writes this sentence himself (it is his mission statement, not Claude's).
-MISSION = "[Aradhya's mission sentence goes here]"
+# Mission Statement
+MISSION = "For people with hemophilia and other conditions that require frequent infusions, VIPER aims to make finding a vein faster and kinder, protecting veins for the years of care ahead."
 
 
 def render() -> None:

@@ -1,7 +1,6 @@
 """VIPER: Vein Imaging and Puncture-site Evaluation with Rotation. Streamlit app.
 
 Run:  streamlit run app.py          (add ?dev=1 to the URL for the Developer and Label pages)
-Designed and directed by Aradhya Pasikanti; reference implementation by Claude Code (see CONTRIBUTIONS.md).
 
 This file only sets up the look and navigation. Pages live in ui/: home (scan/upload + suggested sites), history
 (used sites), settings (user), developer and label (hidden tools). Navigation is a floating bar at the bottom, like

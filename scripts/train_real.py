@@ -1,19 +1,19 @@
-"""Train the site model on synthetic arms + Aradhya's labels (Kaggle 1-60), test on his labels for 61-70. Run:
+"""Train the site model on synthetic arms (Kaggle 1-60), test on labels for 61-70. Run:
     python scripts/train_real.py --model-out PATH     (also writes --report-out)
 
-Training: the synthetic-pretrained model is refit with his labeled TRAIN rows weighted 5x, the existing rule for a
+Training: the synthetic-pretrained model is refit with labeled TRAIN rows weighted 5x, the existing rule for a
 user's own choices (learn.FEATURES has 8 features since 2026-10-24). Only labeled sites that pass the shape checks
 are used, because the model only ever ranks sites that passed them.
 
-Test: ALL his labeled TEST sites are ranked by each method. Sites a method's shape checks reject are put last, so
+Test: ALL labeled TEST sites are ranked by each method. Sites a method's shape checks reject are put last, so
 wrongly rejecting a good site counts against it. Methods:
   "before" = what the app did until today: 5 features, no shape checks.
-  "after"  = approved changes: shape checks + 8 features, synthetic + his train labels.
+  "after"  = approved changes: shape checks + 8 features, synthetic + train labels.
 Numbers:
   AUC: chance a random good site ranks above a random bad one (0.5 = chance).
   top-3 good rate: on each test image, of the top 3 ranked labeled sites, the share he marked good.
   95% range: bootstrap over whole test images (2000 resamples), since sites on one arm are not independent.
-  p (vs random): permutation test; shuffle his labels within each image 5000 times and count how often random
+  p (vs random): permutation test; shuffle labels within each image 5000 times and count how often random
   top-3 picks do at least as well. Small p (< 0.05) = unlikely to be luck.
 One labeler, 10 test images: small-sample numbers, not clinical accuracy.
 """
@@ -98,7 +98,7 @@ def main() -> int:
               report("BEFORE app model (synthetic, 5 feat, no checks)", learn.predict(old_synth, Xte[:, :N5]), yte, idte, rng),
               report("AFTER rules + shape checks", last(rules), yte, idte, rng),
               report("AFTER model, synthetic only (8 feat + checks)", last(learn.predict(new_synth, Xte)), yte, idte, rng),
-              report("AFTER model, synthetic + his labels (proposed)", last(learn.predict(after, Xte)), yte, idte, rng),
+              report("AFTER model, synthetic + labels (proposed)", last(learn.predict(after, Xte)), yte, idte, rng),
               report("AFTER blend (0.5 rules + 0.5 proposed)", last(0.5 * rules + 0.5 * learn.predict(after, Xte)), yte, idte, rng),
               f"{'baseline: share of test sites good':44s} {yte.mean():.2f}",
               "", f"proposed model coefficients: {learn.coefficients(after)}"]

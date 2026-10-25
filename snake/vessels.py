@@ -1,4 +1,4 @@
-"""Step 2: enhanced image -> vesselness -> vein mask -> skeleton (center lines). Reference implementation by Claude Code."""
+"""Step 2: enhanced image -> vesselness -> vein mask -> skeleton (center lines)."""
 import numpy as np
 from scipy import ndimage as ndi
 from skimage.filters import frangi

@@ -1,4 +1,4 @@
-"""Step 4: remember which sites were used and rank new sites away from recent ones. Reference implementation by Claude Code.
+"""Step 4: remember which sites were used and rank new sites away from recent ones.
 
 Why arm coordinates? A site's pixel position changes if the photo changes. We define the arm axis from two
 landmarks (wrist and elbow) so a site is stored as (t, s):

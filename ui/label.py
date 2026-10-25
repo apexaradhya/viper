@@ -1,4 +1,4 @@
-"""Developer-only labeling page: Aradhya marks VIPER's candidate sites on Kaggle photos as good or bad.
+"""Developer-only labeling page: Dev marks VIPER's candidate sites on Kaggle photos as good or bad.
 
 Design choices (so the labels are fair to test with):
 - Scores are hidden and sites are numbered top-to-bottom, so the labeler is not nudged by VIPER's opinion.

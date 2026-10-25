@@ -1,14 +1,14 @@
 """Draw VIPER's top access sites on every image, with the vein path through each site traced. Run:
-    python scripts/visualize_sites.py                      (Kaggle train + test images, with Aradhya's labels)
+    python scripts/visualize_sites.py                      (Kaggle train + test images, with labels)
     python scripts/visualize_sites.py --input my_photos/   (any folder of PNG/JPG images)
 
 Writes one annotated picture per image, a contact sheet per set, and summary.txt to --out (default data/viz/,
-gitignored because the Kaggle images may not be redistributed). Where Aradhya labeled sites, each suggested site is
-checked against his labels: a suggestion counts as "on a labeled site" if within 3 px of one. Sites he never
+gitignored because the Kaggle images may not be redistributed). Where labeled sites, each suggested site is
+checked against labels: a suggestion counts as "on a labeled site" if within 3 px of one. Sites he never
 labeled are counted separately, never as hits.
 
-Colors: light-blue line = traced vein, amber circle + number = suggestion, small blue square = his GOOD label,
-small orange square = his BAD label.
+Colors: light-blue line = traced vein, amber circle + number = suggestion, small blue square = GOOD label,
+small orange square = BAD label.
 """
 import argparse
 import sys
@@ -93,7 +93,7 @@ def main() -> int:
         cv2.imwrite(str(Path(args.out) / f"{split}_sheet.jpg"), contact_sheet(tiles))
         counts[split] = c
         lines.append("")
-    lines.append("Suggestions checked against Aradhya's labels (within 3 px):")
+    lines.append("Suggestions checked against labels (within 3 px):")
     for split, c in counts.items():
         judged = c["good"] + c["bad"]
         rate = f"{c['good'] / judged:.2f}" if judged else "n/a"

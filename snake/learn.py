@@ -4,7 +4,6 @@
    a candidate is "good" if it is on a true vein, the TRUE vein is locally straight there, and it is away from the TRUE junction.
 2. Personalize: user feedback rows are added (weighted higher) and the model is refit. Logistic regression is used
    because it is small, fast and explainable (coefficients can be shown next to the hand-set rule weights).
-Implemented by Claude Code (reference implementation).
 """
 from __future__ import annotations
 

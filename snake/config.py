@@ -16,7 +16,7 @@ class Params:
     vesselness_thresh: float = 0.15               # fraction of max vesselness kept as "vein"
     min_component_px: int = 60                    # drop tiny specks
 
-    # --- arm mask (real photos with a dark background; approved by Aradhya 2026-10-24, see DECISIONS.md) ---
+    # --- arm mask (real photos with a dark background) ---
     arm_bg_thresh: int = 40          # after blurring, pixels at or below this (0-255) are background, not arm
     arm_blur_sigma: float = 5.0      # blur before the background cutoff so skin texture and veins don't punch holes
     arm_max_fg_frac: float = 0.95    # if more of the image than this is "arm", there is no background: skip the mask
@@ -43,7 +43,7 @@ class Params:
     min_border_px: float = 15.0    # hard reject: closer than this to the image edge
     min_straight_px: float = 12.0  # hard reject: straight stretch shorter than this
 
-    # --- shape checks and extra model features (approved by Aradhya 2026-10-24, see DECISIONS.md) ---
+    # --- shape checks and extra model features ---
     min_arm_alignment: float = 0.5   # hard reject: vein runs more than 60 deg across the arm (bands, cuffs, skin folds)
     max_contrast: float = 30.0       # hard reject: far darker than any vein seen (veins 3-8; bands and jewelry 70-80)
     align_path_px: int = 15          # how far along the vein to look when measuring its direction

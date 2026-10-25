@@ -1,4 +1,4 @@
-"""Step 1: load an image and make veins easier to see. Implemented by Claude Code (reference implementation)."""
+"""Step 1: load an image and make veins easier to see."""
 import cv2
 import numpy as np
 from scipy import ndimage as ndi

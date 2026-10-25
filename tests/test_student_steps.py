@@ -1,4 +1,4 @@
-"""Acceptance tests for the pipeline. Run against the reference implementation (snake/); student/ overrides can be tested the same way.
+"""Acceptance tests for the pipeline. Run against the reference implementation (snake/); overrides can be tested the same way.
 
 Run:  pytest -q
 """

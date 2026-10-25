@@ -1,7 +1,4 @@
 """One place that runs the whole pipeline, so the app, the learning layer and the sweep script stay consistent.
-
-Student override: any function Aradhya writes in student/ (same name and signature as the reference one) is used
-instead when use_student=True. This is how his own work plugs in without touching the reference code.
 """
 from dataclasses import dataclass, replace
 import importlib
@@ -61,7 +58,7 @@ def vein_strength(raw: np.ndarray, arm: np.ndarray | None) -> float:
 
     Why: vesselness is rescaled per photo so the strongest 1% of ridges count as fully vein-like. In a photo with
     no clear veins those strongest ridges are only skin texture, and rescaling would promote them. Measuring the
-    strength BEFORE rescaling tells us whether the photo has clear veins at all. On Aradhya's training labels,
+    strength BEFORE rescaling tells us whether the photo has clear veins at all. On training labels,
     the photos below 0.095 had 12% good sites vs 56% for the rest.
     """
     region = arm if arm is not None else np.ones(raw.shape, bool)
@@ -91,10 +88,10 @@ def run(gray: np.ndarray, p: Params = DEFAULT, use_student: bool = False) -> Res
 
 def passes_shape_checks(s, p: Params = DEFAULT) -> bool:
     """Hard rejects for things that look like veins but are not: a band, cuff or skin fold runs ACROSS the forearm,
-    while forearm veins run ALONG it; and jewelry or straps are far darker than any vein. On Aradhya's 122 training
+    while forearm veins run ALONG it; and jewelry or straps are far darker than any vein. On 122 training
     labels these removed 14 + 5 bad sites and no good ones.
     Clutter: ribbed or patterned fabric shows many parallel lines a few pixels apart, a vein is a single line. A site
-    with 2+ other ridge pieces within 12 px was 98% of sites on a ribbed sleeve in Aradhya's photo, and 1 of his 57
+    with 2+ other ridge pieces within 12 px was 98% of sites on a ribbed sleeve in photo, and 1 of 57
     good training sites."""
     return s.align >= p.min_arm_alignment and s.contrast <= p.max_contrast and s.nearby_ridges <= p.max_nearby_ridges
 
