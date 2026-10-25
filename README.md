@@ -13,7 +13,7 @@ Research prototype that maps veins in near-infrared arm images, ranks candidate 
 3. **Rank sites** by vein width, local straightness and distance from branch points.
 4. **Rotate** by logging used sites in arm coordinates and pushing nearby sites down in the ranking.
 
-## Run it
+## Execution
 ```bash
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
