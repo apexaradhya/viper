@@ -1,3 +1,3 @@
-# Contributions (keep honest and current)
+# Contributions
 
 Aradhya Pasikanti | Claude 
