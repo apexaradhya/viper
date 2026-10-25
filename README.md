@@ -4,6 +4,7 @@ designed by Aradhya Pasikanti
 Research prototype that maps veins in near-infrared arm images, ranks candidate IV access sites, and tracks site rotation so the same spot is not stuck repeatedly.
 
 **Status:** work in progress, future implementation with SNAKE (Subcutaneous Navigation And Kinetic Engagement Platform)
+
 **Disclaimer:** Currently an ERP, will be going under regulatory/clinical approval in the near future to be licensed
 
 ## What it does
