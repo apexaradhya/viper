@@ -1,0 +1,3 @@
+# Prompt 02: Step 2, vesselness, vein_mask, skeleton in snake/vessels.py
+
+Teach me how the Frangi/ridge filter uses Hessian eigenvalues to detect tube shapes, why multiple sigmas, and what `black_ridges=True` means (veins are dark in NIR). Then I write `vesselness`, `vein_mask`, `skeleton` myself, one at a time. After each, I say "review"; you run the matching tests and the accuracy test (>=85% of skeleton within 4 px of truth) and give feedback on failures. If accuracy is low, help me reason about tuning (sigmas, threshold, min size) by asking me questions, not by changing my code. Log the session.

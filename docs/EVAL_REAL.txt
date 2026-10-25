@@ -1,0 +1,20 @@
+Labels: data\labels\site_labels.json
+train (Kaggle 1-60): 122 labeled sites on 21 images, 57 good; 0 labels no longer match a candidate
+test (Kaggle 61-70): 59 labeled sites on 10 images, 20 good; 0 labels no longer match a candidate
+
+Ranking the labeled test sites:
+rules (hand-set weights)           AUC 0.568 | top-3 good rate 0.34
+learned, synthetic only (before)   AUC 0.644 | top-3 good rate 0.41
+learned, synthetic + labels (after) AUC 0.635 | top-3 good rate 0.38
+blend after (0.5 rules + 0.5 model) AUC 0.618 | top-3 good rate 0.41
+baseline: share of test sites good 0.34
+
+coefficients before: {'vesselness': 1.686, 'width': -0.034, 'straight': 1.93, 'branch': 0.493, 'border': 1.016}
+coefficients after:  {'vesselness': 0.526, 'width': 0.627, 'straight': 1.518, 'branch': 0.287, 'border': 0.769}
+
+Saved model: C:\Users\kisho\AppData\Local\Temp\claude\E--projects-snake-snake-cac-snake-cac\bb5b61a9-952e-4513-90bb-7ed1b75b2eea\scratchpad\site_model_candidate.pkl
+
+Uncertainty (bootstrap, 2000 resamples of whole test images): AUC 95% range rules 0.38-0.73, before 0.42-0.81, after 0.43-0.80; after minus before -0.06 to +0.05.
+Every range includes 0.5 (chance), so on these 10 test images no method is reliably better than chance, and the labels did not measurably change the model's ranking.
+The model above was saved to a scratch folder only, NOT to models/site_model.pkl: the app still uses the synthetic-only model.
+Data: Kaggle "Forearm Veins (NIR)" (license Unknown), labels by Aradhya Pasikanti (one labeler). Not clinical accuracy.

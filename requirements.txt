@@ -1,0 +1,10 @@
+# Exact versions tested on 2026-10-24 (pytest 32 passed). scikit-learn must match the version that saved
+# models/site_model.pkl, or the model may not load.
+streamlit==1.66.1
+numpy==2.5.4
+scipy==1.18.1
+scikit-image==0.26.0
+opencv-python-headless==5.0.0.93
+pillow==13.0.0
+scikit-learn==1.9.1
+pytest==9.1.1

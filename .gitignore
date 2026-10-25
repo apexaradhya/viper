@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/site_log.json
+data/feedback.json
+# Kaggle forearm NIR images: license "Unknown", local training use only, never commit or deploy
+data/kaggle_forearm_nir/
+# annotated pictures from scripts/visualize_sites.py (contain Kaggle images)
+data/viz/
+data/samples/*
+!data/samples/.gitkeep
+# Aradhya's problem photos for debugging (may show people/clothing): never commit
+data/problem_images/

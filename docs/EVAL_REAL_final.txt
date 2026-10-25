@@ -1,0 +1,23 @@
+Labels: data\labels\site_labels.json
+train (Kaggle 1-60): 122 labeled sites on 21 images, 57 good; 0 unmatched; shape checks reject 14 bad and 0 good
+test (Kaggle 61-70): 59 labeled sites on 10 images, 20 good; 0 unmatched; shape checks reject 18 bad and 3 good
+
+Ranking ALL labeled test sites (rejected sites ranked last for methods with shape checks):
+BEFORE rules (5 features, no checks)         AUC 0.568 (95% range 0.38-0.73) | top-3 good rate 0.34, p vs random 0.530
+BEFORE app model (synthetic, 5 feat, no checks) AUC 0.644 (95% range 0.40-0.81) | top-3 good rate 0.41, p vs random 0.109
+AFTER rules + shape checks                   AUC 0.792 (95% range 0.61-0.90) | top-3 good rate 0.38, p vs random 0.283
+AFTER model, synthetic only (8 feat + checks) AUC 0.723 (95% range 0.46-0.90) | top-3 good rate 0.38, p vs random 0.278
+AFTER model, synthetic + his labels (proposed) AUC 0.774 (95% range 0.58-0.92) | top-3 good rate 0.45, p vs random 0.030
+AFTER blend (0.5 rules + 0.5 proposed)       AUC 0.783 (95% range 0.59-0.91) | top-3 good rate 0.45, p vs random 0.031
+baseline: share of test sites good           0.34
+
+proposed model coefficients: {'vesselness': 0.501, 'width': 0.245, 'straight': 1.462, 'branch': 0.263, 'border': 0.432, 'align': 0.547, 'piece': 0.655, 'arm_end': 0.003}
+
+Saved proposed model to: C:\Users\kisho\AppData\Local\Temp\claude\E--projects-snake-snake-cac-snake-cac\bb5b61a9-952e-4513-90bb-7ed1b75b2eea\scratchpad\site_model_final.pkl
+
+Notes (Claude Code, 2026-10-24):
+- This is the one final test agreed with Aradhya; the changes were approved before this run. The "BEFORE" rows reproduce docs/EVAL_REAL.txt (0.568 and 0.644), confirming the same labels and setup.
+- The pre-specified method is "AFTER model, synthetic + his labels (proposed)". Six rows were computed; p-values are not corrected for that, so treat only the proposed row's p as the main result.
+- Good test sites wrongly rejected by the shape checks (3 of 20): image 65 (vein at 67 deg to the arm, align 0.39), image 66 (80 deg, align 0.17), image 70 (contrast 71.8, next to a very dark mark).
+- 0.45 top-3 good rate still means more than half of the top-3 picks are sites he marked bad. Not clinical accuracy.
+- The proposed model was first saved to a scratch folder only. After seeing these results, Aradhya decided to use it: the same file is now models/site_model.pkl and the app uses it, with Blend as the default ranking.

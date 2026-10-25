@@ -1,0 +1,22 @@
+# VIPER look: light, card-based mobile style (reference chosen by Aradhya, 2026-10-24).
+# Frosted glass cards over soft logo-colored glows (ui/style.py); accents from the logo (slate blue, red).
+[theme]
+base = "light"
+primaryColor = "#4C5D7A"
+backgroundColor = "#EEF0F3"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#15171C"
+borderColor = "#E1E4EA"
+linkColor = "#4C5D7A"
+blueColor = "#4C5D7A"
+redColor = "#C44A57"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+headingFontWeights = [700, 700, 650, 600, 600, 600]
+baseRadius = "large"
+buttonRadius = "full"
+showWidgetBorder = false
+paddingTop = "0.5rem"
+paddingBottom = "7rem"
+
+[client]
+toolbarMode = "minimal"
